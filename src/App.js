@@ -84,7 +84,30 @@ class App extends React.Component {
   }
 
 //upper
+  onClick(){
+    console.log('CHECK onButton');
 
+    let try1 = document.getElementById("or")
+    let a0;
+    a0 = parseFloat(try1.style.opacity)
+    if(a0 < 1)
+      a0 = a0 + 0.1
+    console.log(a0)
+    try1.style.opacity = a0.toString()
+    //try1.style.opacity
+    //try1.hidden = !try1.hidden
+    //try1.style.opacity = `${100}px`
+  }
+  //downer
+  onClick1(){
+    let try1 = document.getElementById("or")
+    let a0;
+    a0 = parseFloat(try1.style.opacity)
+    if(a0 > 0)
+      a0 = a0 - 0.1
+    console.log(a0)
+    try1.style.opacity = a0.toString()
+}
 
 onClickChoose(){
 
@@ -105,8 +128,10 @@ onClickChoose(){
         <canvas id="canvas" width="0" height="0"></canvas>
 
 
+        <button type="button" className="btn btn-secondary" onClick={this.onClick1}>less</button>
         <img src={face001} alt="face" ref="face001"/>
         <img src={logo1} alt="fe" ref="logo" id="or" hidden={true}/>
+        <button type="button" className="btn btn-secondary" onClick={this.onClick}>more</button>
       </header>
     </div>;
   } // end render
