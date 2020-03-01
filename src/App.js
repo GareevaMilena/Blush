@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
-import {getLandmarks, loadModels} from './faceapi';
+import {getLandmarks, loadModels, maskify} from './faceapi';
 import face001 from './face0001.jpg';
 import logo1 from './overlayBLUSH1.png';
+import mask2 from './overlayBLUSH2.png'
+import giff from './logo1.gif'
 import "./styles.css"
 // **********************************************
 // Vars
@@ -107,11 +109,17 @@ class App extends React.Component {
       a0 = a0 - 0.1
     console.log(a0)
     try1.style.opacity = a0.toString()
+    //try1.style.ma
 }
 
-onClickChoose(){
-
+ClickMask2(){
+    let try1 = document.getElementById("or")
+    try1.src=mask2
 }
+  ClickMask1(){
+    let try1 = document.getElementById("or")
+    try1.src=logo1
+  }
 
   // *********************************************
   render() {
@@ -120,20 +128,37 @@ onClickChoose(){
       display: 'none'
     };
 
+    const giffstyle={
+      position: 'absolute',
+      background: 'white',
+    }
+    const picturestyle ={
+      position: 'absolute',
+      height: document.documentElement.clientHeight,
+      //marginleft: 'auto',
+      //marginRight: 'auto',
+      left: '50%',
+      marginRight: '-50%',
+      transform: 'translate(-50%, 0%)',
+      //left: (document.documentElement.clientWidth)/2,
+    }
+
     console.log('CHECK render');
     //const jsxCanvas = <canvas ref="canvas" />
     return <div className="App">
       <header className="App-header">
 
-        <canvas id="canvas" width="0" height="0"></canvas>
-
-
         <button type="button" className="btn btn-secondary" onClick={this.onClick1}>less</button>
-        <img src={face001} alt="face" ref="face001"/>
+        <img src={face001} alt="face" ref="face001" id="face"/>
         <img src={logo1} alt="fe" ref="logo" id="or" hidden={true}/>
         <button type="button" className="btn btn-secondary" onClick={this.onClick}>more</button>
+        <img src={mask2} alt="fe" ref="mask2" id="mask2" hidden={true}/>
+        <img src={giff} alt="fe" ref="giff" id="giff" style={giffstyle} hidden={false}/>
+        <button type="button" className="btn btn-secondary" onClick={this.ClickMask2}>mask2</button>
+        <button type="button" className="btn btn-secondary" onClick={this.ClickMask1}>mask1</button>
       </header>
     </div>;
+
   } // end render
 
 

@@ -3,7 +3,10 @@
 // ********************************************************
 
 import * as faceapi from 'face-api.js';
-import overlay1 from './logo2.png';
+import overlay1 from './overlay.png';
+import React, { useEffect } from 'react';
+
+import immm from './face0002.jpg'
 // ********************************************************
 // Const
 // ********************************************************
@@ -24,13 +27,13 @@ const getOverlayValues = landmarks => {
   const opposite = jawRight.y - jawLeft.y
   const jawLength = Math.sqrt(Math.pow(adjacent, 2) + Math.pow(opposite, 2))
 
-  console.log(jawRight.x - jawLeft.x, jawRight.y - jawLeft.y);
   // Both of these work. The chat believes atan2 is better.
   // I don't know why. (It doesn’t break if we divide by zero.)
   // const angle = Math.round(Math.tan(opposite / adjacent) * 100)
   const angle = Math.atan2(opposite, adjacent) * (180 / Math.PI)
   const width = jawLength * 2.2
 
+  console.log("nn", nose[0].y - width * 0.47, jawLeft.x - width * 0.27);
   return {
     width,
     angle,
@@ -49,7 +52,7 @@ export async function loadModels() {
   console.log('face-api loaded models!');
 }
 
-export async function getLandmarks(imageSrc) {
+export async function getLandmarks(imageSrc, state) {
   const wImage = imageSrc.width;
   let scoreThreshold = 0.5;
   const options = new faceapi.TinyFaceDetectorOptions({
@@ -59,39 +62,22 @@ export async function getLandmarks(imageSrc) {
   console.log('face-api start detect face...');
 
   let fullDesc = await faceapi.detectAllFaces(imageSrc, options)
-    .withFaceLandmarks(USE_TINY_MODEL)
-    .withFaceDescriptors();
-  /*const detection = await faceapi
-      .detectSingleFace(imageSrc, new faceapi.TinyFaceDetectorOptions())
-      .withFaceLandmarks(true);
-
-  const overlayValues = getOverlayValues(detection.landmarks);
-
-  const scale = imageSrc.width / imageSrc.naturalWidth;
-  console.log("scale", scale);
-  const overlay = document.createElement("img");
-  //overlay.src = getRandomMask(masks)
-  overlay.src = overlay1
-      //"./logo2.png";
-  overlay.alt = "mask overlay.";
-  overlay.style.cssText = `
-        position: absolute;
-        left: ${overlayValues.leftOffset * scale}px;
-        top: ${overlayValues.topOffset * scale}px;
-        width: ${overlayValues.width * scale}px;
-        transform: rotate(${overlayValues.angle}deg);
-      `
-
-  console.log(overlayValues.leftOffset*scale);
-  console.log(overlayValues.topOffset*scale);
-  imageSrc.appendChild(overlay);*/
+      .withFaceLandmarks(USE_TINY_MODEL)
+      .withFaceDescriptors();
+  let mask = overlay1;
+  maskify(imageSrc, mask);
 
   console.log('face-api completed face detection.');
   //return detection;
   return fullDesc;
 }
-export async function maskify(imageSrc){
 
+export async function maskify(imageSrc, mask){
+  let parentEl;
+  parentEl = imageSrc;
+  console.log('parentEl', parentEl);
+
+  //const handleImage = (oldImage, newImage) => async () => {
   const detection = await faceapi
       .detectSingleFace(imageSrc, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks(true);
@@ -103,23 +89,57 @@ export async function maskify(imageSrc){
   if (!detection) {
     return
   }
+  let box = imageSrc.getBoundingClientRect();
   const overlay = document.createElement("img");
   //overlay.src = getRandomMask(masks)
-  overlay.src = overlay1
+  overlay.src = mask
   //"./logo2.png";
   overlay.alt = "mask overlay.";
   overlay.style.cssText = `
         position: absolute;
-        left: ${overlayValues.leftOffset * scale}px;
-        top: ${overlayValues.topOffset * scale}px;
+        left: ${overlayValues.leftOffset * scale + box.left +window.pageXOffset}px;
+        top: ${overlayValues.topOffset * scale + box.top+ window.pageYOffset}px;
         width: ${overlayValues.width * scale}px;
         transform: rotate(${overlayValues.angle}deg);
       `
 
-  console.log(overlayValues.width);
-  console.log(overlayValues.topOffset*scale);
+  console.log(overlay);
+  console.log(overlay.style.top, overlay.style.left);
   imageSrc.appendChild(overlay);
+
+
+  const image = new Image()
+  image.crossOrigin = "Anonymous"
+  //image.addEventListener("load", handleImage(imageSrc, image))
+  //image.src = imageSrc.src
+  //ctx.fillRect(0,0, wImage, hImage);
+
+  // draw source image on screen
+
+  //state={imageSrc: imageSrc, canvas: overlay1}
+  //const canvas = state.canvas;
+  //const imageS = state.imageSrc;
+  let try1 = document.getElementById("or")
+
+  //try1.style.width = "200" +"px"
+  //console.log("fsdfsfssd", overlay.style.left)
+  try1.style.top = overlay.style.top
+  try1.style.left = overlay.style.left
+  try1.style.position = "absolute"
+  try1.style.width = overlay.style.width
+  try1.style.rotate = overlay.style.transform
+  try1.style.opacity = "0.50"
+  try1.hidden = false
+  document.getElementById("giff").hidden=true
+
+//не убирать!
+  //let c = document.getElementById("canvas")
+  //console.log(c)
+  //let ctx = c.getContext('2d');
+  //ctx.drawImage(imageSrc, 0, 0);
+  //ctx.drawImage(overlay, overlayValues.leftOffset * scale, overlayValues.topOffset * scale);
+
+
   console.log('face-api detection.');
   //return detection;
 }
-
