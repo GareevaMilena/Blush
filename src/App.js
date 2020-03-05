@@ -38,7 +38,6 @@ class App extends React.Component {
     this.changeface3 = this.changeface3.bind(this);
     this.changeface4 = this.changeface4.bind(this);
     this.changeface5 = this.changeface5.bind(this);
-    this.onButton = this.onButton.bind(this);
     console.log('CHECK constuctor');
 
   } // end constr
@@ -52,7 +51,7 @@ class App extends React.Component {
     if (objCanvas === null) {
       return;
     }
-    this.setState({canvas: objCanvas});
+    //this.setState({canvas: objCanvas});
 
     console.log('CHECK render scene loaded');
     // perform animtaion by timer
@@ -85,12 +84,6 @@ class App extends React.Component {
       this.setState({fullDesc: fullDescription});
     });
   };
-
-  onButton() {
-    //console.log('Pressed button :' + index.toString());
-    console.log('CHECK onButton');
-    //this.startDetect(index);
-  }
 
 //upper
   onClick(){
@@ -165,16 +158,26 @@ ClickMask2(){
     try1.src = face005
     document.getElementById("giff").hidden=false
     document.getElementById("or").hidden=true
+    this.changeImage(false);
     this.processImage(this.state.imageSrc);
   }
   changeImage(e) {
-    const file = e.target.files[0];
-    let b = URL.createObjectURL(file);
-    document.getElementById("giff").hidden=false
-    document.getElementById("or").hidden=true
-    let try1 = document.getElementById("face")
-    try1.src = b
-    this.processImage(this.state.imageSrc);
+    let file
+    if (e === false)
+      file = null
+    else {
+      file = e.target.files[0];
+      console.log("file", file);
+      let b
+      if (file) {
+        b = URL.createObjectURL(file);
+        document.getElementById("giff").hidden = false
+        document.getElementById("or").hidden = true
+        let try1 = document.getElementById("face")
+        try1.src = b
+        this.processImage(this.state.imageSrc);
+      }
+    }
   }
   // *********************************************
   render() {
@@ -184,17 +187,6 @@ ClickMask2(){
       //display: inline
       //backgroundColor: 'white',
     }
-    const picturestyle ={
-      position: 'absolute',
-      height: document.documentElement.clientHeight,
-      //marginleft: 'auto',
-      //marginRight: 'auto',
-      left: '50%',
-      marginRight: '-50%',
-      transform: 'translate(-50%, 0%)',
-      //left: (document.documentElement.clientWidth)/2,
-    }
-
     console.log('CHECK render');
     //const jsxCanvas = <canvas ref="canvas" />
     return <div className="App">
