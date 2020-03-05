@@ -78,12 +78,14 @@ export async function maskify(imageSrc, mask){
       .detectSingleFace(imageSrc, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks(true);
 
+  if (detection !== undefined){
   const overlayValues = getOverlayValues(detection.landmarks);
 
   const scale = imageSrc.width / imageSrc.naturalWidth;
   if (!detection) {
     return
   }
+
   let box = imageSrc.getBoundingClientRect();
   const overlay = document.createElement("img");
   //overlay.src = getRandomMask(masks)
@@ -117,9 +119,10 @@ export async function maskify(imageSrc, mask){
   try1.style.left = overlay.style.left
   try1.style.position = "absolute"
   try1.style.width = overlay.style.width
-  try1.style.rotate = overlay.style.transform
+  try1.style.transform = overlay.style.transform
   try1.style.opacity = "0.50"
   try1.hidden = false
+  }
   document.getElementById("giff").hidden=true
 
 //не убирать!
