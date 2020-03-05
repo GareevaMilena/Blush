@@ -1,9 +1,18 @@
 import React, {useEffect} from 'react';
 import {getLandmarks, loadModels, maskify} from './faceapi';
-import face001 from './face0001.jpg';
-import logo1 from './overlayBLUSH1.png';
-import mask2 from './overlayBLUSH2.png'
+import face001 from './images/faces/face0001.jpg';
+import face002 from './images/faces/face0002.jpg';
+import logo1 from './images/overlay/overlayBLUSH1.png';
+import mask2 from './images/overlay/overlayBLUSH2.png'
+import mask3 from './images/overlay/overlayBLUSH3.png'
+import mask4 from './images/overlay/overlayBLUSH4.png'
 import giff from './logo1.gif'
+import blush1 from './images/icons/button1.png'
+import blush2 from './images/icons/button2.png'
+import blush3 from './images/icons/button3.png'
+import blush4 from './images/icons/button4.png'
+import icon1 from './images/icons/icons1.png'
+import icon2 from './images/icons/icons2.png'
 import "./styles.css"
 // **********************************************
 // Vars
@@ -18,6 +27,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.m_mount = null;
+    this.changeface1 = this.changeface1.bind(this);
+    this.changeface2 = this.changeface2.bind(this);
     this.onButton = this.onButton.bind(this);
     console.log('CHECK constuctor');
 
@@ -26,10 +37,6 @@ class App extends React.Component {
 
   // *********************************************
   renderSceneLoaded(imageSrc) {
-    const wImage = imageSrc.width;
-    const hImage = imageSrc.height;
-    //console.log("image dim = " + wImage.toString() + ", " + hImage.toString());
-
     this.setState({imageSrc: imageSrc});
 
     const objCanvas = this.refs.canvas;
@@ -61,7 +68,7 @@ class App extends React.Component {
   }
 
   processImage = async(imageSrc) => {
-    await getLandmarks(imageSrc, this.state).then( fullDescription => {
+    await getLandmarks(imageSrc).then( fullDescription => {
       // console.log(fullDescription);
       console.log('imag', imageSrc);
       console.log('CHECK process Image');
@@ -69,15 +76,6 @@ class App extends React.Component {
       this.setState({fullDesc: fullDescription});
     });
   };
-  async startDetect(index) {
-    const refs = [this.refs.face001, this.refs.face002];
-    const imgRef = refs[index];
-    this.setState({fullDesc: null});
-    this.renderSceneLoaded(imgRef);
-    console.log('CHECK start Detect');
-
-    await this.processImage(imgRef);
-  }
 
   onButton() {
     //console.log('Pressed button :' + index.toString());
@@ -96,9 +94,6 @@ class App extends React.Component {
       a0 = a0 + 0.1
     console.log(a0)
     try1.style.opacity = a0.toString()
-    //try1.style.opacity
-    //try1.hidden = !try1.hidden
-    //try1.style.opacity = `${100}px`
   }
   //downer
   onClick1(){
@@ -120,17 +115,44 @@ ClickMask2(){
     let try1 = document.getElementById("or")
     try1.src=logo1
   }
-
+  ClickMask3(){
+    let try1 = document.getElementById("or")
+    try1.src=mask3
+  }
+  ClickMask4(){
+    let try1 = document.getElementById("or")
+    try1.src=mask4
+  }
+  changeface1(){
+    let try1 = document.getElementById("face")
+    try1.src = face002
+    document.getElementById("giff").hidden=false
+    document.getElementById("or").hidden=true
+    this.processImage(this.state.imageSrc);
+  }
+  changeface2(){
+    let try1 = document.getElementById("face")
+    try1.src = face001
+    document.getElementById("giff").hidden=false
+    document.getElementById("or").hidden=true
+    this.processImage(this.state.imageSrc);
+  }
+  changeImage(e) {
+    const file = e.target.files[0];
+    let b = URL.createObjectURL(file);
+    document.getElementById("giff").hidden=false
+    document.getElementById("or").hidden=true
+    let try1 = document.getElementById("face")
+    try1.src = b
+    this.processImage(this.state.imageSrc);
+  }
   // *********************************************
   render() {
 
-    const styleImage = {
-      display: 'none'
-    };
-
     const giffstyle={
       position: 'absolute',
-      background: 'white',
+      //display: inline
+      //backgroundColor: 'white',
     }
     const picturestyle ={
       position: 'absolute',
@@ -150,12 +172,22 @@ ClickMask2(){
 
         <button type="button" className="btn btn-secondary" onClick={this.onClick1}>less</button>
         <img src={face001} alt="face" ref="face001" id="face"/>
+        <img src={face002} alt="face" ref="face002" id="face" hidden={true}/>
         <img src={logo1} alt="fe" ref="logo" id="or" hidden={true}/>
         <button type="button" className="btn btn-secondary" onClick={this.onClick}>more</button>
         <img src={mask2} alt="fe" ref="mask2" id="mask2" hidden={true}/>
         <img src={giff} alt="fe" ref="giff" id="giff" style={giffstyle} hidden={false}/>
-        <button type="button" className="btn btn-secondary" onClick={this.ClickMask2}>mask2</button>
-        <button type="button" className="btn btn-secondary" onClick={this.ClickMask1}>mask1</button>
+        <img src={blush1} alt="fe" ref="mask2" id="mask2" onClick={this.ClickMask2}/>
+        <img src={blush2} alt="fe" ref="mask2" id="mask2" onClick={this.ClickMask1}/>
+        <img src={blush3} alt="fe" ref="mask2" id="mask3" onClick={this.ClickMask3}/>
+        <img src={blush4} alt="fe" ref="mask2" id="mask3" onClick={this.ClickMask4}/>
+        <div>
+        <img src={icon1} onClick={this.changeface1}/>
+        <img src={icon2} onClick={this.changeface2}/>
+        </div>
+        <div id="main">
+          <input type="file" onChange={this.changeImage.bind(this)} />
+        </div>
       </header>
     </div>;
 

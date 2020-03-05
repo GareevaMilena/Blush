@@ -6,7 +6,7 @@ import * as faceapi from 'face-api.js';
 import overlay1 from './overlay.png';
 import React, { useEffect } from 'react';
 
-import immm from './face0002.jpg'
+
 // ********************************************************
 // Const
 // ********************************************************
@@ -52,7 +52,7 @@ export async function loadModels() {
   console.log('face-api loaded models!');
 }
 
-export async function getLandmarks(imageSrc, state) {
+export async function getLandmarks(imageSrc) {
   const wImage = imageSrc.width;
   let scoreThreshold = 0.5;
   const options = new faceapi.TinyFaceDetectorOptions({
@@ -73,10 +73,6 @@ export async function getLandmarks(imageSrc, state) {
 }
 
 export async function maskify(imageSrc, mask){
-  let parentEl;
-  parentEl = imageSrc;
-  console.log('parentEl', parentEl);
-
   //const handleImage = (oldImage, newImage) => async () => {
   const detection = await faceapi
       .detectSingleFace(imageSrc, new faceapi.TinyFaceDetectorOptions())
@@ -85,7 +81,6 @@ export async function maskify(imageSrc, mask){
   const overlayValues = getOverlayValues(detection.landmarks);
 
   const scale = imageSrc.width / imageSrc.naturalWidth;
-  console.log("scale", scale);
   if (!detection) {
     return
   }
@@ -102,12 +97,7 @@ export async function maskify(imageSrc, mask){
         width: ${overlayValues.width * scale}px;
         transform: rotate(${overlayValues.angle}deg);
       `
-
-  console.log(overlay);
-  console.log(overlay.style.top, overlay.style.left);
   imageSrc.appendChild(overlay);
-
-
   const image = new Image()
   image.crossOrigin = "Anonymous"
   //image.addEventListener("load", handleImage(imageSrc, image))
