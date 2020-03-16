@@ -12,7 +12,7 @@ h1 {
     margin: 0;
 }*/
 
-header button {
+main button {
     background: rgb(190, 106, 170);
     border: 3px solid black;
     border-radius: 5px;
@@ -25,6 +25,80 @@ header button {
     top: 70px;
 }
 
+main{
+    margin-left: 80px;
+    //padding: 16px;
+}
+
+.App-header{
+    margin-top: initial;
+}
+
+.Navbar{
+    position: absolute;
+    width: 80px;
+    height: 100vh;
+    background-color: rgba(61, 66, 74, 0.98);
+}
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //height: 100%;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-item:hover{
+    //background: #364c5c;
+    -webkit-transform: scale(0.96);
+    -ms-transform: scale(0.96);
+    transform: scale(0.96);
+}
+
+.NavBottom1{
+    z-index: 10;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+}
+
+.Navbar .NavBottom1{
+    position: absolute;
+    -webkit-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.Navbar ul li:hover .NavBottom1 {
+    position: relative;
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+.NavBottom1{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider{
+    transform: rotate(90deg);
+    margin-top: 20px;
+}
 /*.content {
     position: relative;
     margin: 0 auto;
