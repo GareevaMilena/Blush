@@ -35,8 +35,6 @@ const MyComponent = () => {
     return (
         <RangeSlider
             value={value}
-            /*onChange={changeEvent => {setValue(changeEvent.target.value);
-            document.getElementById("or").style.opacity=changeEvent.target.value.toString()}}*/
             onChange={changeEvent => setValue(changeEvent.target.value)}
             tooltip="auto"
             className="slider"
@@ -79,11 +77,12 @@ class IconsClick  extends React.Component{
                 document.getElementById("giff").hidden = false
                 document.getElementById("or").hidden = true
                 let try1 = document.getElementById("face")
-                try1.src = b
+                try1.src = b;
                 this.processImage(this.state.imageSrc);
             }
         }
     }
+    //<img height='80' src={add} onChange={this.changeImage.bind(this)} id="add"/>
     render() {
         return<nav className="Navbar">
                 <ul className="navbar-nav">
@@ -92,9 +91,10 @@ class IconsClick  extends React.Component{
                         <ul className="NavBottom1">
                             <li className="nav-item">
                                 <img height='80' src={about} id="about"/>
+                                <label htmlFor="file-input" className="upload-container"/>
                             </li>
                             <li className="nav-item">
-                                <img height='80' src={add} onChange={this.changeImage.bind(this)} id="add"/>
+                                <img height='80' src={add}/>
                             </li>
                             <li className="nav-item">
                                 <img height='80' src={choose} id="choose"/>

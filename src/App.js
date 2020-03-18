@@ -155,9 +155,7 @@ class App extends React.Component {
         <img src={logo1} alt="fe" ref="logo" id="or" hidden={true}/>
         <img src={mask2} alt="fe" ref="mask2" id="mask2" hidden={true}/>
         <img src={giff} alt="fe" ref="giff" id="giff" style={giffstyle} hidden={false}/>
-        <div id="main">
-          <input type="file" onChange={this.changeImage.bind(this)} />
-        </div>
+        <input type="file" multiple={true} id="file-input" src={logo1} hidden={true} onChange={this.changeImage.bind(this)} />
         <div>
           <img src={icon1} onClick={this.changeface1}/>
           <img src={icon2} onClick={this.changeface2}/>
