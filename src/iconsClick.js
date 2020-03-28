@@ -47,6 +47,7 @@ const MyComponent = () => {
 class IconsClick  extends React.Component{
     constructor(props) {
         super(props);
+        //this.ClickPopUp = this.ClickPopUp.bind(this);
     }
     ClickMask2(){
         let try1 = document.getElementById("or")
@@ -64,24 +65,6 @@ class IconsClick  extends React.Component{
         let try1 = document.getElementById("or")
         try1.src=mask4
     }
-    changeImage(e) {
-        let file
-        if (e === false)
-            file = null
-        else {
-            file = e.target.files[0];
-            console.log("file", file);
-            let b
-            if (file) {
-                b = URL.createObjectURL(file);
-                document.getElementById("giff").hidden = false
-                document.getElementById("or").hidden = true
-                let try1 = document.getElementById("face")
-                try1.src = b;
-                this.processImage(this.state.imageSrc);
-            }
-        }
-    }
     //<img height='80' src={add} onChange={this.changeImage.bind(this)} id="add"/>
     render() {
         return<nav className="Navbar">
@@ -90,10 +73,11 @@ class IconsClick  extends React.Component{
                         <img height='80' src={settings} alt="fe" ref="mask2" id="mask2"/>
                         <ul className="NavBottom1">
                             <li className="nav-item">
+                                <label htmlFor="AboutModal" className="upload-container"/>
                                 <img height='80' src={about} id="about"/>
-                                <label htmlFor="file-input" className="upload-container"/>
                             </li>
                             <li className="nav-item">
+                                <label htmlFor="file-input" className="upload-container"/>
                                 <img height='80' src={add}/>
                             </li>
                             <li className="nav-item">

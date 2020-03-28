@@ -1,19 +1,5 @@
-/*body {
-    font-family: sans-serif;
-}
-
-header {
-    margin: 80px auto 0;
-    max-width: 90vw;
-}
-
-h1 {
-    line-height: 1;
-    margin: 0;
-}*/
-
 .App{
-    background: #2f3338;
+    //background: #2f3338;
 }
 main button {
     background: rgb(190, 106, 170);
@@ -36,12 +22,16 @@ main{
 label{
     position: absolute;
 }
+.facestyle{
+    max-height: 100vh;
+}
 
 .App-header{
     margin-top: initial;
 }
 
 .Navbar{
+    z-index: 1;
     position: absolute;
     width: 80px;
     height: 100vh;
@@ -108,6 +98,7 @@ label{
 }
 
 .upload-container {
+    list-style-image: url("./images/icons/add.png");
     display: flex;
     width: 80px;
     height: 80px;
@@ -116,6 +107,12 @@ label{
 }
 
 .upload-container img {
+    width: 40%;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.modal-container img {
     width: 40%;
     margin-bottom: 20px;
     user-select: none;
