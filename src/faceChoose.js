@@ -1,20 +1,33 @@
-import React from "react";
-import {useState} from "react";
+import React, {Component, Fragment} from "react";
 import face001 from './images/faces/face0001.jpg';
 import face002 from './images/faces/face0002.jpg';
 import face003 from './images/faces/face0003.jpg';
 import face004 from './images/faces/face0004.jpg';
 import face005 from './images/faces/face0005.jpg';
-import {Carousel} from "react-bootstrap";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import icon1 from "./images/icons/icons1.png";
 import icon2 from "./images/icons/icons2.png";
 import icon3 from "./images/icons/icons3.png";
 import icon4 from "./images/icons/icons4.png";
 import icon5 from "./images/icons/icons5.png";
+import Modal from "./modal";
 
 export const faces = [face002, face001, face003, face004, face005]
 
 class FaceChoose extends React.Component{
+    state = {
+        isOpen: false,
+    }
+
+    openModal = () => {
+        this.setState({ isOpen: true });
+    }
+
+    handleCancel = () => {
+        console.log('Cancel function!');
+        this.setState({ isOpen: false });
+    }
     constructor(props) {
         super(props);
         this.newface = null;
@@ -32,17 +45,21 @@ class FaceChoose extends React.Component{
     render() {
         const funcParam = this.props.func;
         this.newface = funcParam;
-        return<Carousel>
-                <Carousel.Item>
+        return<Fragment>
+            <textarea hidden={true} id="ChooseModal" onClick={this.openModal}>Show modal</textarea>
+            <Modal
+                title="About"
+                isOpen={this.state.isOpen}
+                onCancel={this.handleCancel}>
+            <Carousel width={200} onClickItem={this.newface} showStatus={true}>
                     <img src={icon1} id="icon1" onClick={this.changeface1}/>
-                </Carousel.Item>
-                <Carousel.Item>
                     <img src={icon2} onClick={this.changeface2}/>
                     <img src={icon3} onClick={this.changeface3}/>
                     <img src={icon4} onClick={this.changeface4}/>
                     <img src={icon5} onClick={this.changeface5}/>
-                </Carousel.Item>
             </Carousel>
+            </Modal>
+        </Fragment>
     }
 }
 

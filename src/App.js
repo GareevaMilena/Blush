@@ -68,7 +68,7 @@ class App extends React.Component {
 
   newface(index){
     let try1 = document.getElementById("face")
-    try1.src = faces[index-1]
+    try1.src = faces[index]
     document.getElementById("giff").hidden=false
     document.getElementById("or").hidden=true
     this.processImage(this.state.imageSrc);
