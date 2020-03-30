@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { Component, Fragment } from 'react';
 import Modal from './modal';
+import {about} from './images/icons/about.png'
 
 class Sandbox extends Component {
     state = {

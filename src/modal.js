@@ -6,7 +6,7 @@ import about from "./images/icons/about.png";
 import {Button} from "react-bootstrap";
 
 const Modal = ({
-                   title, isOpen, onCancel, children,
+                   mypic, title, isOpen, onCancel, children,
                }) => {
 
     return (

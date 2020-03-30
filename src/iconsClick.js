@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import RangeSlider from 'react-bootstrap-range-slider';
+import {Tooltip, OverlayTrigger} from "react-bootstrap";
 import blush1 from './images/icons/blushcolor1.png'
 import blush2 from './images/icons/blushcolor2.png'
 import blush3 from './images/icons/blushcolor3.png'
@@ -44,9 +45,107 @@ const MyComponent = () => {
     );
 
 };
+
+function renderTooltip(props) {
+    if (document.getElementById("or").alt === "en")
+    return (
+        <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+            Settings
+        </Tooltip>
+    );
+    else return (
+        <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+            Параметры
+        </Tooltip>
+    );
+}
+function renderLang(props) {
+    if (document.getElementById("or").alt === "en")
+        return (
+            <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+                Change language
+                <div>into russian</div>
+            </Tooltip>
+        );
+    else return (
+        <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+            Сменить язык
+            <div>на английский</div>
+        </Tooltip>
+    );
+}
+function renderAbout(props) {
+    if (document.getElementById("or").alt === "en")
+        return (
+            <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+                About
+            </Tooltip>
+        );
+    else return (
+        <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+            Справка
+        </Tooltip>
+    );
+}
+function renderAdd(props) {
+    if (document.getElementById("or").alt === "en")
+        return (
+            <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+                Load image <div>from device</div>
+            </Tooltip>
+        );
+    else return (
+        <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+            Загрузить изображе-<div>ние с устройства</div>
+        </Tooltip>
+    );
+}
+function renderChoose(props) {
+    if (document.getElementById("or").alt === "en")
+        return (
+            <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+                Select existing<div>image</div>
+            </Tooltip>
+        );
+    else return (
+        <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+            Выбрать существу-<div>ющее изображение</div>
+        </Tooltip>
+    );
+}
+function renderColor(props) {
+    if (document.getElementById("or").alt === "en")
+        return (
+            <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+                Choose<div>color</div>
+            </Tooltip>
+        );
+    else return (
+        <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+            Сменить<div>цвет</div>
+        </Tooltip>
+    );
+}
+function renderFade(props) {
+    if (document.getElementById("or").alt === "en")
+        return (
+            <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+                Transparency
+            </Tooltip>
+        );
+    else return (
+        <Tooltip id="button-tooltip" {...props} bsPrefix="tooltip1">
+            Прозрачность
+        </Tooltip>
+    );
+}
+
 class IconsClick  extends React.Component{
     constructor(props) {
         super(props);
+        this.state ={
+            language: 'RU'
+        }
         //this.ClickPopUp = this.ClickPopUp.bind(this);
     }
     ClickMask2(){
@@ -65,32 +164,75 @@ class IconsClick  extends React.Component{
         let try1 = document.getElementById("or")
         try1.src=mask4
     }
+    ChangeLang(){
+        if (document.getElementById("or").alt === "en")
+        document.getElementById("or").alt = "ru"
+        else
+            document.getElementById("or").alt = "en"
+    }
     //<img height='80' src={add} onChange={this.changeImage.bind(this)} id="add"/>
     render() {
         return<nav className="Navbar">
                 <ul className="navbar-nav">
                     <li className="nav-item">
+                        <OverlayTrigger
+                            placement="right"
+                            delay={{ show: 250, hide: 400 }}
+                            overlay={renderTooltip}
+                        >
                         <img height='80' src={settings} alt="fe" ref="mask2" id="mask2"/>
+                        </OverlayTrigger>
                         <ul className="NavBottom1">
                             <li className="nav-item">
+                                <OverlayTrigger
+                                    placement="right"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderAbout}
+                                >
                                 <label htmlFor="AboutModal" className="upload-container"/>
-                                <img height='80' src={about} id="about"/>
+                                </OverlayTrigger>
+                                <img height='80' src={about} id="about" alt=""/>
                             </li>
                             <li className="nav-item">
+                                <OverlayTrigger
+                                    placement="right"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderAdd}
+                                >
                                 <label htmlFor="file-input" className="upload-container"/>
+                                </OverlayTrigger>
                                 <img height='80' src={add}/>
                             </li>
                             <li className="nav-item">
+                                <OverlayTrigger
+                                    placement="right"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderChoose}
+                                >
+                                <label htmlFor="ChooseModal" className="upload-container"/>
+                                </OverlayTrigger>
                                 <img height='80' src={choose} id="choose"/>
                             </li>
                             <li className="nav-item">
-                                <img height='80' src={language} id="language"/>
+                                <OverlayTrigger
+                                    placement="right"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderLang}
+                                >
+                                <img height='80' alt="lang" src={language} id="language" onClick={this.ChangeLang}/>
+                                </OverlayTrigger>
                             </li>
                         </ul>
                     </li>
 
                     <li className="nav-item">
+                        <OverlayTrigger
+                            placement="right"
+                            delay={{ show: 250, hide: 400 }}
+                            overlay={renderColor}
+                        >
                         <img height='80' src={choose_color} alt="fe" ref="mask2" id="mask2"/>
+                        </OverlayTrigger>
                         <ul className="NavBottom1">
                             <li className="nav-item">
                                 <img height='80' src={blush1} alt="fe" ref="mask2" id="mask2" onClick={this.ClickMask2}/>
@@ -107,7 +249,13 @@ class IconsClick  extends React.Component{
                         </ul>
                     </li>
                     <li className="nav-item">
+                        <OverlayTrigger
+                            placement="right"
+                            delay={{ show: 250, hide: 400 }}
+                            overlay={renderFade}
+                        >
                         <img height='80' src={fade} id="fade"/>
+                        </OverlayTrigger>
                         <ul className="NavBottom1">
                             <li className="nav-item">
                                 <MyComponent/>

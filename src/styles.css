@@ -117,3 +117,7 @@ label{
     margin-bottom: 20px;
     user-select: none;
 }
+.tooltip1{
+    background-color: #687276;
+    z-index: 2;
+}
