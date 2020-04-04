@@ -180,7 +180,7 @@ class IconsClick  extends React.Component{
                             delay={{ show: 250, hide: 400 }}
                             overlay={renderTooltip}
                         >
-                        <img height='80' src={settings} alt="fe" ref="mask2" id="mask2"/>
+                        <img className="MyIMG" height='80' src={settings} alt="fe" ref="mask2" id="mask2"/>
                         </OverlayTrigger>
                         <ul className="NavBottom1">
                             <li className="nav-item">
@@ -191,7 +191,7 @@ class IconsClick  extends React.Component{
                                 >
                                 <label htmlFor="AboutModal" className="upload-container"/>
                                 </OverlayTrigger>
-                                <img height='80' src={about} id="about" alt=""/>
+                                <img className="MyIMG"  height='80' src={about} id="about" alt=""/>
                             </li>
                             <li className="nav-item">
                                 <OverlayTrigger
@@ -201,7 +201,7 @@ class IconsClick  extends React.Component{
                                 >
                                 <label htmlFor="file-input" className="upload-container"/>
                                 </OverlayTrigger>
-                                <img height='80' src={add}/>
+                                <img className="MyIMG"  height='80' src={add} alt="add1"/>
                             </li>
                             <li className="nav-item">
                                 <OverlayTrigger
@@ -211,7 +211,7 @@ class IconsClick  extends React.Component{
                                 >
                                 <label htmlFor="ChooseModal" className="upload-container"/>
                                 </OverlayTrigger>
-                                <img height='80' src={choose} id="choose"/>
+                                <img className="MyIMG"  height='80' src={choose} id="choose" alt="choose1"/>
                             </li>
                             <li className="nav-item">
                                 <OverlayTrigger
@@ -219,7 +219,7 @@ class IconsClick  extends React.Component{
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={renderLang}
                                 >
-                                <img height='80' alt="lang" src={language} id="language" onClick={this.ChangeLang}/>
+                                <img className="MyIMG"  height='80' alt="lang" src={language} id="language" onClick={this.ChangeLang}/>
                                 </OverlayTrigger>
                             </li>
                         </ul>
@@ -231,20 +231,20 @@ class IconsClick  extends React.Component{
                             delay={{ show: 250, hide: 400 }}
                             overlay={renderColor}
                         >
-                        <img height='80' src={choose_color} alt="fe" ref="mask2" id="mask2"/>
+                        <img className="MyIMG" height='80' src={choose_color} alt="fe" ref="mask2" id="mask2"/>
                         </OverlayTrigger>
                         <ul className="NavBottom1">
                             <li className="nav-item">
-                                <img height='80' src={blush1} alt="fe" ref="mask2" id="mask2" onClick={this.ClickMask2}/>
+                                <img className="MyIMG" height='80' src={blush1} alt="fe" ref="mask2" id="mask2" onClick={this.ClickMask2}/>
                             </li>
                             <li className="nav-item">
-                                <img height='80' src={blush2} alt="fe" ref="mask2" id="mask2" onClick={this.ClickMask1}/>
+                                <img className="MyIMG" height='80' src={blush2} alt="fe" ref="mask2" id="mask2" onClick={this.ClickMask1}/>
                             </li>
                             <li className="nav-item">
-                                <img height='80' src={blush3} alt="fe" ref="mask2" id="mask3" onClick={this.ClickMask3}/>
+                                <img className="MyIMG" height='80' src={blush3} alt="fe" ref="mask2" id="mask3" onClick={this.ClickMask3}/>
                             </li>
                             <li className="nav-item">
-                                <img height='80' src={blush4} alt="fe" ref="mask2" id="mask3" onClick={this.ClickMask4}/>
+                                <img className="MyIMG" height='80' src={blush4} alt="fe" ref="mask2" id="mask3" onClick={this.ClickMask4}/>
                             </li>
                         </ul>
                     </li>
@@ -254,7 +254,7 @@ class IconsClick  extends React.Component{
                             delay={{ show: 250, hide: 400 }}
                             overlay={renderFade}
                         >
-                        <img height='80' src={fade} id="fade"/>
+                        <img className="MyIMG" height='80' src={fade} id="fade" alt="fade1"/>
                         </OverlayTrigger>
                         <ul className="NavBottom1">
                             <li className="nav-item">

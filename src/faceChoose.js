@@ -1,11 +1,11 @@
-import React, {Component, Fragment} from "react";
+import React, {Fragment} from "react";
 import face001 from './images/faces/face0001.jpg';
 import face002 from './images/faces/face0002.jpg';
 import face003 from './images/faces/face0003.jpg';
 import face004 from './images/faces/face0004.jpg';
 import face005 from './images/faces/face0005.jpg';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import {Carousel} from 'react-responsive-carousel';
 import icon1 from "./images/icons/icons1.png";
 import icon2 from "./images/icons/icons2.png";
 import icon3 from "./images/icons/icons3.png";
@@ -14,6 +14,18 @@ import icon5 from "./images/icons/icons5.png";
 import Modal from "./modal";
 
 export const faces = [face002, face001, face003, face004, face005]
+
+const NewComponent = () =>{
+    console.log("componenta",document.getElementById("or").alt)
+    if (document.getElementById("or").alt === "en")
+        return (
+            <div>Click on image to select it</div>
+        )
+    else
+        return (
+            <div>Нажмите на изображение, чтобы выбрать</div>
+        )
+}
 
 class FaceChoose extends React.Component{
     state = {
@@ -31,32 +43,26 @@ class FaceChoose extends React.Component{
     constructor(props) {
         super(props);
         this.newface = null;
-        this.changeface1 = this.changeface1.bind(this)
-        this.changeface2 = this.changeface2.bind(this)
-        this.changeface3 = this.changeface3.bind(this)
-        this.changeface4 = this.changeface4.bind(this)
-        this.changeface5 = this.changeface5.bind(this)
     }
-    changeface1(){ this.newface(1) }
-    changeface2(){ this.newface(2) }
-    changeface3(){ this.newface(3) }
-    changeface4(){ this.newface(4) }
-    changeface5(){ this.newface(5) }
     render() {
-        const funcParam = this.props.func;
-        this.newface = funcParam;
+        const cho={
+            marginLeft: 'auto'
+        }
+        this.newface = this.props.func;
         return<Fragment>
             <textarea hidden={true} id="ChooseModal" onClick={this.openModal}>Show modal</textarea>
             <Modal
-                title="About"
+                title="Select"
                 isOpen={this.state.isOpen}
-                onCancel={this.handleCancel}>
-            <Carousel width={200} onClickItem={this.newface} showStatus={true}>
-                    <img src={icon1} id="icon1" onClick={this.changeface1}/>
-                    <img src={icon2} onClick={this.changeface2}/>
-                    <img src={icon3} onClick={this.changeface3}/>
-                    <img src={icon4} onClick={this.changeface4}/>
-                    <img src={icon5} onClick={this.changeface5}/>
+                onCancel={this.handleCancel}
+            >
+                <NewComponent/>
+            <Carousel width="200px" onClickItem={this.newface} selectedItem={1} className={cho} showThumbs={false} showStatus={true}>
+                    <img src={icon1} id="icon1" alt="f1"/>
+                    <img src={icon2} alt="f2"/>
+                    <img src={icon3} alt="f3"/>
+                    <img src={icon4} alt="f4"/>
+                    <img src={icon5} alt="f5"/>
             </Carousel>
             </Modal>
         </Fragment>

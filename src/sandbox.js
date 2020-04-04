@@ -1,9 +1,24 @@
 /* eslint-disable */
 import React, { Component, Fragment } from 'react';
 import Modal from './modal';
-import {about} from './images/icons/about.png'
+
+
+const NewComponent = () =>{
+    console.log("componenta",document.getElementById("or").alt)
+    if (document.getElementById("or").alt === "en")
+        return (
+            <p>Blush is a project, that applies some blush on your image. Create new looks and use it for entertaining purposes. Just load your picture or choose one from exacting and get started.</p>
+        )
+    else
+        return (
+            <p>Blush - проект, который накладывает румяна на ваше изображение. Придумыйвайте новые образы - только загрузите ваше фото или выберите из имеющихся. Приложение используйте для развлекательных целей.</p>
+        )
+}
 
 class Sandbox extends Component {
+    constructor(props) {
+        super(props);
+    }
     state = {
         isOpen: false,
     }
@@ -14,13 +29,14 @@ class Sandbox extends Component {
 
     handleCancel = () => {
         console.log('Cancel function!');
+        if (document.getElementById("or").alt === "en")
+            console.log('truuuue')
         this.setState({ isOpen: false });
     }
 
     render() {
         return (
             <Fragment>
-
                 <textarea hidden={true} id="AboutModal" onClick={this.openModal}>Show modal</textarea>
                 <Modal
                     title="About"
@@ -28,7 +44,7 @@ class Sandbox extends Component {
                     onCancel={this.handleCancel}
                 >
                     <h3>blush</h3>
-                    <p>Blush is a project, that applies some blush on your image. Create new looks and use it for entertaining purposes. Just load your picture or choose one from exacting and get started.</p>
+                    <NewComponent/>
                 </Modal>
 
             </Fragment>
