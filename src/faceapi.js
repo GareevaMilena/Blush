@@ -4,7 +4,6 @@
 
 import * as faceapi from 'face-api.js';
 import overlay1 from './overlay.png';
-import React, { useEffect } from 'react';
 
 
 // ********************************************************

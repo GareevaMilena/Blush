@@ -1,21 +1,10 @@
 .App{
     //background: #2f3338;
 }
-main button {
-    background: rgb(190, 106, 170);
-    border: 3px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: Highlight;
-    padding: 5px 20px;
-    height: 70px;
-    top: 70px;
-}
 
 main{
     margin-left: 80px;
+    //position: fixed;
     //padding: 16px;
 }
 
@@ -33,11 +22,13 @@ label{
 .Navbar{
     z-index: 1;
     position: absolute;
+    //position: fixed;
     width: 80px;
     height: 100vh;
     background-color: rgba(61, 66, 74, 0.98);
 }
 .navbar-nav {
+    //position: fixed;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -92,8 +83,23 @@ label{
     align-items: center;
 }
 
+@media only screen and (max-width: 700px){
+    main{
+        margin-left: 40px;
+    }
+    .slider{
+        width: 200%;
+    }
+    .Navbar{
+        width: 40px;
+    }
+    .MyIMG{
+        height: 40px;
+    }
+}
+
 .slider{
-    transform: rotate(90deg);
+    //transform: rotate(-90deg);
     margin-top: 20px;
 }
 
