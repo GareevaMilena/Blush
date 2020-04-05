@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Modal.css';
-import about from "./images/icons/about.png";
+import about from "./images/icons/times.png";
 import {Button} from "react-bootstrap";
 
 const Modal = ({
@@ -16,7 +16,7 @@ const Modal = ({
                     <div className="modalWindow">
                         <div className="modalHeader">
                             <div className="modalTitle">{title}</div>
-                            <img height='80' src={about} id="about" onClick={onCancel} alt="hm"/>
+                            <img height='20' src={about} id="about" onClick={onCancel} alt="hm"/>
                         </div>
                         <div className="modalBody">
                             {children}

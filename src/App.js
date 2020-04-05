@@ -4,8 +4,8 @@ import IconsClick from './iconsClick';
 import {faces} from "./faceChoose";
 import FaceChoose from "./faceChoose";
 import face001 from './images/faces/face0001.jpg';
-import logo1 from './images/overlay/overlayBLUSH1.png';
-//import logo1 from './overlay.png';
+//import logo1 from './images/overlay/overlayBLUSH1.png';
+import logo1 from './overlay.png';
 import mask2 from './images/overlay/overlayBLUSH2.png'
 import giff from './logo1.gif'
 import "./styles.css"
@@ -132,12 +132,11 @@ class App extends React.Component {
       let top_x = document.getElementById("or").style.top;
       let top_left = document.getElementById("or").style.left;
       top_left = parseFloat(top_left)
-      //console.log("top", top_left)
       document.getElementById("or").style.transformOrigin =
           document.getElementById("or").style.WebkitTransformOrigin = document.getElementById("or").style.MsTransformOrigin =
-      '-'+parseFloat(top_x)+ 'px -' + top_left/2+'px'
+      '-'+parseFloat(top_x)+ 'px -' + top_left+'px'
 
-      console.log(document.getElementById("face").style.transform, document.getElementById("or").style.transform)
+      //console.log('cho', document.getElementById("face").style.tran, document.getElementById("or").style.transformOrigin)
     /*console.log(document.getElementById("face").style.transform ,document.getElementById("or").style.transform)
     let for_width = Math.abs(scale -1)/0.05;
     let top = document.getElementById("or").style.top;
@@ -160,12 +159,6 @@ class App extends React.Component {
   // *********************************************
   render() {
 
-    const giffstyle={
-      position: 'absolute',
-      //display: inline
-      //backgroundColor: 'white',
-    }
-
     //const jsxCanvas = <canvas ref="canvas" />
     return <div className="App">
       <IconsClick/>
@@ -175,7 +168,7 @@ class App extends React.Component {
         <img src={face001} alt="face" ref="face001" id="face" onWheel={this.Wheel} className="facestyle"/>
         <img src={logo1} alt="en" ref="logo" id="or" onWheel={this.Wheel} hidden={true}/>
         <img src={mask2} alt="fe" ref="mask2" id="mask2" hidden={true}/>
-        <img src={giff} alt="fe" ref="giff" id="giff" style={giffstyle} hidden={false}/>
+        <img src={giff} alt="fe" ref="giff" id="giff" className="giffstyle" hidden={false}/>
         <input type="file" multiple={true} id="file-input" src={logo1} hidden={true} onChange={this.changeImage.bind(this)} />
         <FaceChoose func={this.newface}/>
       </main>

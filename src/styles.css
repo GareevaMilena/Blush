@@ -1,5 +1,15 @@
-.App{
-    //background: #2f3338;
+html{
+    background: #2f3338 url("./images/backback.png");
+}
+
+.giffstyle{
+    //background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-repeat: repeat;
 }
 
 main{
@@ -95,6 +105,9 @@ label{
     }
     .MyIMG{
         height: 40px;
+    }
+    .giffstyle{
+        width: 200px;
     }
 }
 
