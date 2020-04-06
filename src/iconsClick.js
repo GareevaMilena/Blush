@@ -6,11 +6,13 @@ import blush1 from './images/icons/blushcolor1.png'
 import blush2 from './images/icons/blushcolor2.png'
 import blush3 from './images/icons/blushcolor3.png'
 import blush4 from './images/icons/blushcolor4.png'
+import blush5 from './images/icons/blushcolor5.png'
 import "./styles.css"
 import mask2 from "./images/overlay/overlayBLUSH2.png";
 import logo1 from "./images/overlay/overlayBLUSH1.png";
 import mask3 from "./images/overlay/overlayBLUSH3.png";
 import mask4 from "./images/overlay/overlayBLUSH4.png";
+import mask5 from "./images/overlay/overlayBLUSH5.png";
 import choose_color from "./images/icons/colorchoose.png";
 import settings from "./images/icons/settings.png";
 import about from "./images/icons/about.png";
@@ -164,6 +166,10 @@ class IconsClick  extends React.Component{
         let try1 = document.getElementById("or")
         try1.src=mask4
     }
+    ClickMask5(){
+        let try1 = document.getElementById("or")
+        try1.src=mask5
+    }
     ChangeLang(){
         if (document.getElementById("or").alt === "en")
         document.getElementById("or").alt = "ru"
@@ -245,6 +251,9 @@ class IconsClick  extends React.Component{
                             </li>
                             <li className="nav-item">
                                 <img className="MyIMG" height='80' src={blush4} alt="fe" ref="mask2" id="mask3" onClick={this.ClickMask4}/>
+                            </li>
+                            <li className="nav-item">
+                                <img className="MyIMG" height='80' src={blush5} alt="fe" ref="mask2" id="mask5" onClick={this.ClickMask5}/>
                             </li>
                         </ul>
                     </li>

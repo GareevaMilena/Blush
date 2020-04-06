@@ -26,6 +26,12 @@ class App extends React.Component {
     super(props);
     this.newface = this.newface.bind(this);
     this.Wheel = this.Wheel.bind(this);
+    this.DragStart=this.DragStart.bind(this);
+    this.DragEnd=this.DragEnd.bind(this);
+    this.state ={
+      mouseX: 0,
+      mouseY: 0
+    }
   } // end constr
 
 
@@ -70,14 +76,7 @@ class App extends React.Component {
   newface(index){
     let try1 = document.getElementById("face")
     try1.src = faces[index]
-    document.getElementById("face").style.transform = document.getElementById("face").style.WebkitTransform =
-        document.getElementById("face").style.MsTransform ='scale(1.00)';
-    let scalestring = document.getElementById("or").style.transform;
-    console.log(scalestring, scalestring.indexOf(")")+1)
-    scalestring = scalestring.slice(0, scalestring.indexOf(")")+1) + ' scale(1.00)';
-    document.getElementById("or").style.transform = scalestring
-    //document.getElementById("face").style.transformOrigin = 'top left'
-    //document.getElementById("or").style.transformOrigin = 'top left'
+    //document.getElementById("face").height = 100
     document.getElementById("giff").hidden=false
     document.getElementById("or").hidden=true
     this.processImage(this.state.imageSrc);
@@ -92,11 +91,11 @@ class App extends React.Component {
       let b
       if (file) {
         b = URL.createObjectURL(file);
-        document.getElementById("face").style.transform = document.getElementById("face").style.WebkitTransform =
+        /*document.getElementById("face").style.transform = document.getElementById("face").style.WebkitTransform =
             document.getElementById("face").style.MsTransform ='scale(1.00)';
         let scalestring = document.getElementById("or").style.transform;
         scalestring = scalestring.slice(0, scalestring.indexOf(")")+1) + ' scale(1.00)';
-        document.getElementById("or").style.transform = scalestring
+        document.getElementById("or").style.transform = scalestring*/
         document.getElementById("giff").hidden = false
         document.getElementById("or").hidden = true
         let try1 = document.getElementById("face")
@@ -106,7 +105,35 @@ class App extends React.Component {
     }
   }
 
+  DragEnd(e){
+    console.log(e.clientX - this.state.mouseX)
+    document.getElementById("face").style.left = "124px"
+    console.log(document.getElementById("face").style.left)
+  }
+
+  DragStart(e){
+    if (!document.getElementById("face").style.left)
+      document.getElementById("face").style.left =''
+    //console.log("dragg")
+    //console.log(e.clientX)
+    //this.state.mouseX = e.clientX
+    this.setState({mouseX: e.clientX})
+    //console.log('f', this.state.mouseX)
+  }
+
   Wheel(e){
+    document.getElementById("face").style.maxHeight = "none"
+    let scalestring = document.getElementById("face").height
+    console.log(scalestring)
+    let scale = parseFloat(scalestring)
+    if (e.deltaY <=0)
+      document.getElementById("face").height = scale * 1.05
+    else
+      document.getElementById("face").height = scale / 1.05
+    this.processImage(this.state.imageSrc);
+  }
+
+  Wheele(e){
     //if (document.getElementById("face").style.transform.charAt(0) ==="s")
     if (document.getElementById("or").style.transform.includes("s"))
     {
@@ -165,7 +192,8 @@ class App extends React.Component {
       <Sandbox/>
       <main className="App-header">
 
-        <img src={face001} alt="face" ref="face001" id="face" onWheel={this.Wheel} className="facestyle"/>
+        <img src={face001} alt="face" ref="face001" id="face" onWheel={this.Wheel}
+             onDragStart={this.DragStart} onDragEnd={this.DragEnd} className="facestyle"/>
         <img src={logo1} alt="en" ref="logo" id="or" onWheel={this.Wheel} hidden={true}/>
         <img src={mask2} alt="fe" ref="mask2" id="mask2" hidden={true}/>
         <img src={giff} alt="fe" ref="giff" id="giff" className="giffstyle" hidden={false}/>
