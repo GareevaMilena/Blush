@@ -31,7 +31,7 @@ const MyComponent = () => {
         a0 = parseFloat(try1.style.opacity)
         if(0<= a0 <= 1)
             a0 = value/100
-        console.log(a0)
+        //console.log(a0)
         try1.style.opacity = a0.toString()
     })
 

@@ -23,6 +23,9 @@ label{
 }
 .facestyle{
     max-height: 100vh;
+    top: auto;
+    left: auto;
+    position: absolute;
 }
 
 .App-header{
