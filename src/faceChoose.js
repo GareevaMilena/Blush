@@ -124,7 +124,7 @@ class FaceChoose extends React.Component{
         //console.log(document.documentElement.clientWidth)
         if (parseFloat(document.documentElement.clientWidth) >= 700)
         return<Fragment>
-            <textarea hidden={true} id="ChooseModal" onClick={this.openModal}>Show modal</textarea>
+            <select hidden={true} id="ChooseModal" onClick={this.openModal}>Show modal</select>
             <Modal
                 title="Select"
                 isOpen={this.state.isOpen}
@@ -180,7 +180,7 @@ class FaceChoose extends React.Component{
             </Modal>
         </Fragment>
         else return<Fragment>
-            <textarea hidden={true} id="ChooseModal" onClick={this.openModal}>Show modal</textarea>
+            <select hidden={true} id="ChooseModal" onClick={this.openModal}>Show modal</select>
             <Modal
                 title="Select"
                 isOpen={this.state.isOpen}

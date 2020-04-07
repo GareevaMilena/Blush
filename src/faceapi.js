@@ -119,7 +119,7 @@ export async function maskify(imageSrc, mask){
   try1.style.position = "absolute"
   try1.style.width = overlay.style.width
   try1.style.transform = overlay.style.transform
-  try1.style.opacity = "0.50"
+  //try1.style.opacity = "0.50"
   try1.hidden = false
   }
   document.getElementById("giff").hidden=true

@@ -205,7 +205,6 @@ class App extends React.Component {
   }
   // *********************************************
   render() {
-
     //const jsxCanvas = <canvas ref="canvas" />
     return <div className="App">
       <IconsClick/>

@@ -37,7 +37,7 @@ class Sandbox extends Component {
     render() {
         return (
             <Fragment>
-                <textarea hidden={true} id="AboutModal" onClick={this.openModal}>Show modal</textarea>
+                <select hidden={true} id="AboutModal" onClick={this.openModal}>Show modal</select>
                 <Modal
                     title="About"
                     isOpen={this.state.isOpen}
