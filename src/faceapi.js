@@ -16,7 +16,7 @@ const USE_TINY_MODEL = true;
 // Class
 // ********************************************************
 
-const getOverlayValues = landmarks => {
+export const getOverlayValues = landmarks => {
   const nose = landmarks.getNose()
   const jawline = landmarks.getJawOutline()
 
@@ -26,17 +26,26 @@ const getOverlayValues = landmarks => {
   const opposite = jawRight.y - jawLeft.y
   const jawLength = Math.sqrt(Math.pow(adjacent, 2) + Math.pow(opposite, 2))
 
+  const nose_up = nose[0]
+  //console.log ("levaya", nose_up.x - jawLeft.x )
+  //console.log ("pravaya", jawRight.x - nose_up.x)
+  let my_leftOffset = jawLeft.x;
+  //if (nose_up.x - jawLeft.x > jawRight.x - nose_up.x)
+    my_leftOffset += -(jawRight.x + jawLeft.x - 2*nose_up.x)/2
+  //else
+   // console.log(my_leftOffset)
   // Both of these work. The chat believes atan2 is better.
   // I don't know why. (It doesn’t break if we divide by zero.)
   // const angle = Math.round(Math.tan(opposite / adjacent) * 100)
   const angle = Math.atan2(opposite, adjacent) * (180 / Math.PI)
   const width = jawLength * 2.2
 
-  console.log("nn", nose[0].y - width * 0.47, jawLeft.x - width * 0.27);
+  //console.log("nn", nose[0].y - width * 0.47, jawLeft.x - width * 0.27);
   return {
     width,
     angle,
-    leftOffset: jawLeft.x - width * 0.27,
+    leftOffset: my_leftOffset - width * 0.27,
+    //leftOffset: jawLeft.x - width * 0.27,
     topOffset: nose[0].y - width * 0.47,
   }
 }
@@ -90,6 +99,7 @@ export async function maskify(imageSrc, mask){
   //overlay.src = getRandomMask(masks)
   overlay.src = mask
   //"./logo2.png";
+    console.log('overlayValues', overlayValues);
   overlay.alt = "mask overlay.";
   overlay.style.cssText = `
         position: absolute;

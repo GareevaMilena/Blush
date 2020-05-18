@@ -51,6 +51,7 @@ class App extends React.Component {
 
   renderScene(faceRef) {
     const imageSrc = faceRef;
+    //console.log("faceRef", faceRef);
     imageSrc.onload = () => {
       this.renderSceneLoaded(imageSrc);
     }// end on load image
@@ -66,8 +67,8 @@ class App extends React.Component {
 
   processImage = async(imageSrc) => {
     await getLandmarks(imageSrc).then( fullDescription => {
-      // console.log(fullDescription);
-      console.log('imag', imageSrc);
+      //console.log('fullDescription', getLandmarks(imageSrc));
+      //console.log('imag', imageSrc);
 
       this.setState({fullDesc: fullDescription});
     });
@@ -153,56 +154,6 @@ class App extends React.Component {
     this.processImage(this.state.imageSrc);
   }
 
-  Wheele(e){
-    //if (document.getElementById("face").style.transform.charAt(0) ==="s")
-    if (document.getElementById("or").style.transform.includes("s"))
-    {
-    let scalestring = document.getElementById("face").style.transform
-    scalestring = scalestring.charAt(6) + scalestring.charAt(7) + scalestring.charAt(8) + scalestring.charAt(9)
-    let scale = parseFloat(scalestring)
-    if (e.deltaY <= 0) {
-      if (scale <= 1.95)
-        scale += 0.05;
-    }
-    else{
-      if (scale >=0.55)
-        scale -= 0.05;
-    }
-    scalestring = document.getElementById("or").style.transform;
-      scalestring = scalestring.slice(0, scalestring.indexOf("le(")+3) + scale +')';
-    document.getElementById("face").style.transform = document.getElementById("face").style.WebkitTransform =
-        document.getElementById("face").style.MsTransform = 'scale(' + scale + ')';
-      document.getElementById("face").style.transformOrigin = document.getElementById("face").style.WebkitTransformOrigin
-          = document.getElementById("face").style.MsTransformOrigin = '0 0'
-    document.getElementById("or").style.transform = document.getElementById("or").style.WebkitTransform =
-       document.getElementById("or").style.MsTransform = scalestring;
-      let top_x = document.getElementById("or").style.top;
-      let top_left = document.getElementById("or").style.left;
-      top_left = parseFloat(top_left)
-      document.getElementById("or").style.transformOrigin =
-          document.getElementById("or").style.WebkitTransformOrigin = document.getElementById("or").style.MsTransformOrigin =
-      '-'+parseFloat(top_x)+ 'px -' + top_left+'px'
-
-      //console.log('cho', document.getElementById("face").style.tran, document.getElementById("or").style.transformOrigin)
-    /*console.log(document.getElementById("face").style.transform ,document.getElementById("or").style.transform)
-    let for_width = Math.abs(scale -1)/0.05;
-    let top = document.getElementById("or").style.top;
-    top = top.slice(0, top.indexOf("px"));
-    document.getElementById("or").style.top = parseFloat(top) -
-        (document.getElementById("face").width*Math.pow(scale, for_width)-document.getElementById("face").width*Math.pow(scale, for_width-1))/2 +'px';
-    console.log("top", document.getElementById("or").style.top)*/
-      // let for_width = Math.abs(scale -1)/0.05;
-      // console.log("for_width", scale, for_width)
-      // let top = document.getElementById("or").style.top;
-      // document.getElementById("or").style.top = parseFloat(top) - scale*for_width +'px'
-    }
-    else
-    {
-      document.getElementById("face").style.transform = 'scale(1.00)';
-      document.getElementById("or").style.transform += 'scale(1.00)';
-    }
-    //this.processImage(this.state.imageSrc);
-  }
   // *********************************************
   render() {
     //const jsxCanvas = <canvas ref="canvas" />
@@ -210,7 +161,6 @@ class App extends React.Component {
       <IconsClick/>
       <Sandbox/>
       <main className="App-header">
-
         <img src={face001} alt="face" ref="face001" id="face" onWheel={this.Wheel}
              onDragStart={this.DragStart} onDragEnd={this.DragEnd} className="facestyle"/>
         <img src={logo1} alt="en" ref="logo" id="or"

@@ -172,9 +172,14 @@ class IconsClick  extends React.Component{
     }
     ChangeLang(){
         if (document.getElementById("or").alt === "en")
-        document.getElementById("or").alt = "ru"
-        else
+        {
+            document.getElementById("or").alt = "ru"
+            alert("Язык изменён")
+        }
+        else{
             document.getElementById("or").alt = "en"
+            alert("Language changed");
+        }
     }
     //<img height='80' src={add} onChange={this.changeImage.bind(this)} id="add"/>
     render() {
