@@ -73,6 +73,7 @@ export async function getLandmarks(imageSrc) {
   let fullDesc = await faceapi.detectAllFaces(imageSrc, options)
       .withFaceLandmarks(USE_TINY_MODEL)
       .withFaceDescriptors();
+
   let mask = overlay1;
   maskify(imageSrc, mask);
 
@@ -92,10 +93,6 @@ export async function maskify(imageSrc, mask){
 
   const scale = imageSrc.width / imageSrc.naturalWidth;
   if (!detection) {
-    if (document.getElementById("or").alt === "en")
-      alert("No face was recognised")
-    if (document.getElementById("or").alt === "ru")
-      alert("Лицо не было найдено")
     return
   }
 
@@ -136,6 +133,12 @@ export async function maskify(imageSrc, mask){
   try1.style.transform = overlay.style.transform
   //try1.style.opacity = "0.50"
   try1.hidden = false
+  }
+  else {
+    if (document.getElementById("or").alt === "en")
+      alert("No face was recognised")
+    if (document.getElementById("or").alt === "ru")
+      alert("Лицо не было найдено")
   }
   document.getElementById("giff").hidden=true
 
