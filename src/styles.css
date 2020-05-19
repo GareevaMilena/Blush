@@ -51,15 +51,27 @@ label{
     //height: 100%;
 }
 
+
 .nav-item {
     width: 100%;
 }
 
 .nav-item:hover{
     //background: #364c5c;
-    -webkit-transform: scale(0.96);
-    -ms-transform: scale(0.96);
-    transform: scale(0.96);
+    //opacity: 0.9;
+    background-color: #585f67;
+    //-webkit-transform: scale(1.01);
+    //-ms-transform: scale(1.01);
+    //transform: scale(1.01);
+
+    box-shadow:
+            1px 1px #be6aaa,
+            2px 2px #be6aaa,
+            3px 3px #be6aaa,
+            4px 4px #be6aaa,
+            5px 5px #be6aaa,
+            6px 6px #be6aaa,
+            7px 7px #be6aaa;
 }
 
 .NavBottom1{
