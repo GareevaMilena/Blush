@@ -31,15 +31,16 @@ export const getOverlayValues = landmarks => {
   //console.log ("pravaya", jawRight.x - nose_up.x)
   let my_leftOffset = jawLeft.x;
   //if (nose_up.x - jawLeft.x > jawRight.x - nose_up.x)
-    my_leftOffset += -(jawRight.x + jawLeft.x - 2*nose_up.x)/2
+    my_leftOffset += -(jawRight.x + jawLeft.x - 2*nose_up.x)/4
+
   //else
    // console.log(my_leftOffset)
   // Both of these work. The chat believes atan2 is better.
   // I don't know why. (It doesn’t break if we divide by zero.)
   // const angle = Math.round(Math.tan(opposite / adjacent) * 100)
   const angle = Math.atan2(opposite, adjacent) * (180 / Math.PI)
-  const width = jawLength * 2.2
-
+  const width = jawLength * 2.2;
+  //my_leftOffset += Math.abs(jawLength / width)
   //console.log("nn", nose[0].y - width * 0.47, jawLeft.x - width * 0.27);
   return {
     width,
@@ -91,6 +92,10 @@ export async function maskify(imageSrc, mask){
 
   const scale = imageSrc.width / imageSrc.naturalWidth;
   if (!detection) {
+    if (document.getElementById("or").alt === "en")
+      alert("No face was recognised")
+    if (document.getElementById("or").alt === "ru")
+      alert("Лицо не было найдено")
     return
   }
 

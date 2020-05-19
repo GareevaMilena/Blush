@@ -167,7 +167,7 @@ class App extends React.Component {
              onDragStart={this.DragStart} onDragEnd={this.DragEnd} onWheel={this.Wheel} hidden={true}/>
         <img src={mask2} alt="fe" ref="mask2" id="mask2" hidden={true}/>
         <img src={giff} alt="fe" ref="giff" id="giff" className="giffstyle" hidden={false}/>
-        <input type="file" multiple={true} id="file-input" src={logo1} hidden={true} onChange={this.changeImage.bind(this)} />
+        <input type="file" multiple={true} id="file-input" accept="image/*,image/jpeg" src={logo1} hidden={true} onChange={this.changeImage.bind(this)} />
         <FaceChoose func={this.newface}/>
       </main>
     </div>;
