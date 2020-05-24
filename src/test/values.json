@@ -2,451 +2,451 @@
 	{
 		"srcImg": "/images/faces/face0006.jpg",
 		"theoryPoints": {
-			"width": 909,
+			"width": 143,
 			"angle": -5,
-			"leftOffset": 413,
-			"topOffset": 616
+			"leftOffset": 685,
+			"topOffset": 1070
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0007.jpg",
 		"theoryPoints": {
-			"width": 1137,
+			"width": 198,
 			"angle": -7,
-			"leftOffset": 371,
-			"topOffset": 81
+			"leftOffset": 693,
+			"topOffset": 661
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0008.jpg",
 		"theoryPoints": {
-			"width": 949,
+			"width": 164,
 			"angle": 4,
-			"leftOffset": 341,
-			"topOffset": 812
+			"leftOffset": 596,
+			"topOffset": 1268
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0009.jpg",
 		"theoryPoints": {
-			"width": 588,
+			"width": 89,
 			"angle": -5,
-			"leftOffset": 661,
-			"topOffset": 245
+			"leftOffset": 840,
+			"topOffset": 536
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0010.jpg",
 		"theoryPoints": {
-			"width": 1234,
+			"width": 199,
 			"angle": 0,
-			"leftOffset": 332,
-			"topOffset": 330
+			"leftOffset": 684,
+			"topOffset": 944
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0011.jpg",
 		"theoryPoints": {
-			"width": 2935,
+			"width": 478,
 			"angle": 1,
-			"leftOffset": -577,
-			"topOffset": -310
+			"leftOffset": 259,
+			"topOffset": 1040
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0012.jpg",
 		"theoryPoints": {
-			"width": 1477,
+			"width": 271,
 			"angle": 7,
-			"leftOffset": 221,
-			"topOffset": 439
+			"leftOffset": 585,
+			"topOffset": 1123
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0013.jpg",
 		"theoryPoints": {
-			"width": 414,
+			"width": 65,
 			"angle": -30,
-			"leftOffset": 740,
-			"topOffset": 307
+			"leftOffset": 874,
+			"topOffset": 529
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0014.jpg",
 		"theoryPoints": {
-			"width": 1712,
+			"width": 252,
 			"angle": -12,
-			"leftOffset": 40,
-			"topOffset": 552
+			"leftOffset": 580,
+			"topOffset": 1433
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0015.jpg",
 		"theoryPoints": {
-			"width": 932,
+			"width": 130,
 			"angle": 9,
-			"leftOffset": 509,
-			"topOffset": 1021
+			"leftOffset": 784,
+			"topOffset": 1462
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0016.jpg",
 		"theoryPoints": {
-			"width": 741,
+			"width": 116,
 			"angle": 5,
-			"leftOffset": 269,
-			"topOffset": 210
+			"leftOffset": 479,
+			"topOffset": 577
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0017.jpg",
 		"theoryPoints": {
-			"width": 546,
+			"width": 101,
 			"angle": 26,
-			"leftOffset": 746,
-			"topOffset": 1020
+			"leftOffset": 857,
+			"topOffset": 1245
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0018.jpg",
 		"theoryPoints": {
-			"width": 324,
+			"width": 57,
 			"angle": 27,
-			"leftOffset": 934,
-			"topOffset": 224
+			"leftOffset": 1002,
+			"topOffset": 357
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0019.jpg",
 		"theoryPoints": {
-			"width": 918,
+			"width": 144,
 			"angle": 13,
-			"leftOffset": 546,
-			"topOffset": 163
+			"leftOffset": 784,
+			"topOffset": 594
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0020.jpg",
 		"theoryPoints": {
-			"width": 1868,
+			"width": 259,
 			"angle": 3,
-			"leftOffset": 12,
-			"topOffset": -150
+			"leftOffset": 583,
+			"topOffset": 778
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0021.jpg",
 		"theoryPoints": {
-			"width": 2498,
+			"width": 401,
 			"angle": 6,
-			"leftOffset": -297,
-			"topOffset": 23
+			"leftOffset": 385,
+			"topOffset": 1169
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0022.jpg",
 		"theoryPoints": {
-			"width": 589,
+			"width": 87,
 			"angle": 5,
-			"leftOffset": 740,
-			"topOffset": 209
+			"leftOffset": 911,
+			"topOffset": 496
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0023.jpg",
 		"theoryPoints": {
-			"width": 1215,
+			"width": 191,
 			"angle": -4,
-			"leftOffset": 228,
-			"topOffset": 360
+			"leftOffset": 587,
+			"topOffset": 967
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0024.jpg",
 		"theoryPoints": {
-			"width": 890,
+			"width": 132,
 			"angle": -4,
-			"leftOffset": 439,
-			"topOffset": 854
+			"leftOffset": 712,
+			"topOffset": 1301
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0025.jpg",
 		"theoryPoints": {
-			"width": 1226,
+			"width": 207,
 			"angle": -23,
-			"leftOffset": 308,
-			"topOffset": 380
+			"leftOffset": 696,
+			"topOffset": 1059
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0026.jpg",
 		"theoryPoints": {
-			"width": 584,
+			"width": 97,
 			"angle": -1,
-			"leftOffset": 291,
-			"topOffset": -42
+			"leftOffset": 453,
+			"topOffset": 242
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0027.jpg",
 		"theoryPoints": {
-			"width": 2094,
+			"width": 376,
 			"angle": -5,
-			"leftOffset": 11,
-			"topOffset": 268
+			"leftOffset": 592,
+			"topOffset": 1335
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0028.jpg",
 		"theoryPoints": {
-			"width": 936,
+			"width": 153,
 			"angle": -2,
-			"leftOffset": 447,
-			"topOffset": 870
+			"leftOffset": 710,
+			"topOffset": 1325
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0029.jpg",
 		"theoryPoints": {
-			"width": 686,
+			"width": 94,
 			"angle": -11,
-			"leftOffset": 589,
-			"topOffset": 607
+			"leftOffset": 816,
+			"topOffset": 959
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0030.jpg",
 		"theoryPoints": {
-			"width": 1455,
+			"width": 247,
 			"angle": 0,
-			"leftOffset": 321,
-			"topOffset": 183
+			"leftOffset": 717,
+			"topOffset": 862
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0031.jpg",
 		"theoryPoints": {
-			"width": 1493,
+			"width": 265,
 			"angle": 13,
-			"leftOffset": 313,
-			"topOffset": 142
+			"leftOffset": 679,
+			"topOffset": 783
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0032.jpg",
 		"theoryPoints": {
-			"width": 814,
+			"width": 126,
 			"angle": -4,
-			"leftOffset": 546,
-			"topOffset": 77
+			"leftOffset": 787,
+			"topOffset": 484
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0033.jpg",
 		"theoryPoints": {
-			"width": 1928,
+			"width": 304,
 			"angle": -3,
-			"leftOffset": -24,
-			"topOffset": 353
+			"leftOffset": 551,
+			"topOffset": 1274
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0034.jpg",
 		"theoryPoints": {
-			"width": 1555,
+			"width": 267,
 			"angle": -7,
-			"leftOffset": 185,
-			"topOffset": 436
+			"leftOffset": 625,
+			"topOffset": 1216
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0035.jpg",
 		"theoryPoints": {
-			"width": 2072,
+			"width": 314,
 			"angle": -4,
-			"leftOffset": -150,
-			"topOffset": 162
+			"leftOffset": 476,
+			"topOffset": 1175
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0036.jpg",
 		"theoryPoints": {
-			"width": 2099,
+			"width": 359,
 			"angle": -3,
-			"leftOffset": 4,
-			"topOffset": 536
+			"leftOffset": 586,
+			"topOffset": 1496
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0037.jpg",
 		"theoryPoints": {
-			"width": 1599,
+			"width": 222,
 			"angle": 3,
-			"leftOffset": 66,
-			"topOffset": -215
+			"leftOffset": 558,
+			"topOffset": 554
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0038.jpg",
 		"theoryPoints": {
-			"width": 664,
+			"width": 110,
 			"angle": 4,
-			"leftOffset": 639,
-			"topOffset": 258
+			"leftOffset": 821,
+			"topOffset": 563
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0039.jpg",
 		"theoryPoints": {
-			"width": 589,
+			"width": 114,
 			"angle": -3,
-			"leftOffset": 132,
-			"topOffset": -2
+			"leftOffset": 283,
+			"topOffset": 288
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0040.jpg",
 		"theoryPoints": {
-			"width": 1403,
+			"width": 239,
 			"angle": -11,
-			"leftOffset": 312,
-			"topOffset": -63
+			"leftOffset": 719,
+			"topOffset": 630
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0041.jpg",
 		"theoryPoints": {
-			"width": 784,
+			"width": 129,
 			"angle": 3,
-			"leftOffset": 10,
-			"topOffset": -108
+			"leftOffset": 228,
+			"topOffset": 287
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0042.jpg",
 		"theoryPoints": {
-			"width": 195,
+			"width": 29,
 			"angle": -3,
-			"leftOffset": -15,
-			"topOffset": 3
+			"leftOffset": 45,
+			"topOffset": 100
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0043.jpg",
 		"theoryPoints": {
-			"width": 480,
+			"width": 80,
 			"angle": 3,
-			"leftOffset": 199,
-			"topOffset": 10
+			"leftOffset": 330,
+			"topOffset": 237
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0044.jpg",
 		"theoryPoints": {
-			"width": 1371,
+			"width": 256,
 			"angle": 3,
-			"leftOffset": -163,
-			"topOffset": -151
+			"leftOffset": 181,
+			"topOffset": 484
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0045.jpg",
 		"theoryPoints": {
-			"width": 576,
+			"width": 86,
 			"angle": -11,
-			"leftOffset": 20,
-			"topOffset": 161
+			"leftOffset": 203,
+			"topOffset": 436
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0046.jpg",
 		"theoryPoints": {
-			"width": 1052,
+			"width": 185,
 			"angle": 6,
-			"leftOffset": 76,
-			"topOffset": -69
+			"leftOffset": 350,
+			"topOffset": 410
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0047.jpg",
 		"theoryPoints": {
-			"width": 851,
+			"width": 136,
 			"angle": -1,
-			"leftOffset": -118,
-			"topOffset": -25
+			"leftOffset": 127,
+			"topOffset": 384
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0048.jpg",
 		"theoryPoints": {
-			"width": 1329,
+			"width": 180,
 			"angle": -1,
-			"leftOffset": -173,
-			"topOffset": -137
+			"leftOffset": 245,
+			"topOffset": 528
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0049.jpg",
 		"theoryPoints": {
-			"width": 656,
+			"width": 103,
 			"angle": 1,
-			"leftOffset": 13,
-			"topOffset": -67
+			"leftOffset": 204,
+			"topOffset": 246
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0050.jpg",
 		"theoryPoints": {
-			"width": 193,
+			"width": 36,
 			"angle": -2,
-			"leftOffset": 92,
-			"topOffset": -20
+			"leftOffset": 143,
+			"topOffset": 66
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0051.jpg",
 		"theoryPoints": {
-			"width": 1143,
+			"width": 171,
 			"angle": -1,
-			"leftOffset": -125,
-			"topOffset": -14
+			"leftOffset": 219,
+			"topOffset": 540
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0052.jpg",
 		"theoryPoints": {
-			"width": 481,
+			"width": 66,
 			"angle": -8,
-			"leftOffset": 45,
-			"topOffset": 34
+			"leftOffset": 201,
+			"topOffset": 274
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0053.jpg",
 		"theoryPoints": {
-			"width": 1738,
+			"width": 301,
 			"angle": -29,
-			"leftOffset": -126,
-			"topOffset": -152
+			"leftOffset": 436,
+			"topOffset": 812
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0054.jpg",
 		"theoryPoints": {
-			"width": 515,
+			"width": 93,
 			"angle": 1,
-			"leftOffset": -86,
-			"topOffset": -54
+			"leftOffset": 53,
+			"topOffset": 174
 		}
 	},
 	{
 		"srcImg": "/images/faces/face0055.jpg",
 		"theoryPoints": {
-			"width": 586,
+			"width": 100,
 			"angle": -1,
-			"leftOffset": 75,
-			"topOffset": -99
+			"leftOffset": 237,
+			"topOffset": 190
 		}
 	}
 ]
