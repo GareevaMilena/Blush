@@ -4,7 +4,8 @@ import IconsClick from './iconsClick';
 import {faces} from "./faceChoose";
 import FaceChoose from "./faceChoose";
 import face001 from './images/faces/face0001.jpg';
-import logo1 from './images/overlay/overlayBLUSH1.png';
+import logo1 from './images/overlay/blush1left.png';
+import logo1r from './images/overlay/blush1right.png';
 //import logo1 from './overlay.png';
 import mask2 from './images/overlay/overlayBLUSH2.png'
 import giff from './logo1.gif'
@@ -164,6 +165,8 @@ class App extends React.Component {
         <img src={face001} alt="face" ref="face001" id="face" onWheel={this.Wheel}
              onDragStart={this.DragStart} onDragEnd={this.DragEnd} className="facestyle"/>
         <img src={logo1} alt="en" ref="logo" id="or"
+             onDragStart={this.DragStart} onDragEnd={this.DragEnd} onWheel={this.Wheel} hidden={true}/>
+        <img src={logo1r} alt="en" ref="logo" id="or2"
              onDragStart={this.DragStart} onDragEnd={this.DragEnd} onWheel={this.Wheel} hidden={true}/>
         <img src={mask2} alt="fe" ref="mask2" id="mask2" hidden={true}/>
         <img src={giff} alt="fe" ref="giff" id="giff" className="giffstyle" hidden={false}/>

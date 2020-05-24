@@ -5,7 +5,6 @@
 import * as faceapi from 'face-api.js';
 import overlay1 from './overlay.png';
 
-
 // ********************************************************
 // Const
 // ********************************************************
@@ -24,30 +23,42 @@ export const getOverlayValues = landmarks => {
   const jawRight = jawline.splice(-1)[0]
   const adjacent = jawRight.x - jawLeft.x
   const opposite = jawRight.y - jawLeft.y
-  const jawLength = Math.sqrt(Math.pow(adjacent, 2) + Math.pow(opposite, 2))
+  //const jawLength = Math.sqrt(Math.pow(adjacent, 2) + Math.pow(opposite, 2))
 
   const nose_up = nose[0]
   //console.log ("levaya", nose_up.x - jawLeft.x )
   //console.log ("pravaya", jawRight.x - nose_up.x)
-  let my_leftOffset = jawLeft.x;
+  let my_leftOffset;
+  let my_topOffset;
   //if (nose_up.x - jawLeft.x > jawRight.x - nose_up.x)
-    my_leftOffset += -(jawRight.x + jawLeft.x - 2*nose_up.x)/4
-
+  let levaya = Math.sqrt(Math.pow(nose_up.x - jawLeft.x, 2)+Math.pow(nose_up.y - jawLeft.y, 2));
+  let pravaya = Math.sqrt(Math.pow(jawRight.x - nose_up.x, 2)+Math.pow(jawRight.y - nose_up.y, 2));
+  let initial;
+  initial = pravaya/levaya;
+  console.log("initial", initial);
+  my_leftOffset = (jawline[1].x + nose[4].x)/2;
+  my_topOffset = (jawline[1].y + nose[4].y)/2;
   //else
    // console.log(my_leftOffset)
   // Both of these work. The chat believes atan2 is better.
   // I don't know why. (It doesn’t break if we divide by zero.)
   // const angle = Math.round(Math.tan(opposite / adjacent) * 100)
   const angle = Math.atan2(opposite, adjacent) * (180 / Math.PI)
-  const width = jawLength * 2.2;
+  const width = Math.sqrt(Math.pow(nose_up.x - jawLeft.x, 2)+Math.pow(nose_up.y - jawLeft.y, 2))*0.7;
+  let widthR = Math.sqrt(Math.pow(jawRight.x - nose_up.x, 2)+Math.pow(jawRight.y - nose_up.y, 2))*0.7;
+  let my_right = (jawline[15].x + nose[4].x)/2;
+  let topR = (jawline[15].y + nose[4].y)/2;
+
   //my_leftOffset += Math.abs(jawLength / width)
   //console.log("nn", nose[0].y - width * 0.47, jawLeft.x - width * 0.27);
   return {
     width,
     angle,
-    leftOffset: my_leftOffset - width * 0.27,
-    //leftOffset: jawLeft.x - width * 0.27,
-    topOffset: nose[0].y - width * 0.47,
+    leftOffset: my_leftOffset - width * 0.5,
+    topOffset: my_topOffset - width * 0.5,
+    widthR,
+    my_right: my_right - widthR * 0.2,
+    topR: topR - widthR * 0.45,
   }
 }
 
@@ -122,17 +133,23 @@ export async function maskify(imageSrc, mask){
   //state={imageSrc: imageSrc, canvas: overlay1}
   //const canvas = state.canvas;
   //const imageS = state.imageSrc;
-  let try1 = document.getElementById("or")
+  let try1 = document.getElementById("or");
+  let try2 = document.getElementById("or2")
 
   //try1.style.width = "200" +"px"
   //console.log("fsdfsfssd", overlay.style.left)
-  try1.style.top = overlay.style.top
-  try1.style.left = overlay.style.left
-  try1.style.position = "absolute"
-  try1.style.width = overlay.style.width
-  try1.style.transform = overlay.style.transform
+  try1.style.top = overlay.style.top;
+  try2.style.top = (overlayValues.topR * scale + box.top+ window.pageYOffset).toString() + 'px';
+  try1.style.left = overlay.style.left;
+  try2.style.left = (overlayValues.my_right * scale + box.left +window.pageXOffset).toString() + 'px';
+  try1.style.position = try2.style.position = "absolute";
+  try1.style.width = overlay.style.width;
+  try2.style.width = (overlayValues.widthR * scale).toString()+'px';
+  try1.style.transform = try2.style.transform = overlay.style.transform;
+  //try1.style.perspectiveOrigin = "0 50%";
+  //try1.style.perspective =  "400px";
   //try1.style.opacity = "0.50"
-  try1.hidden = false
+  try1.hidden = try2.hidden = false;
   }
   else {
     if (document.getElementById("or").alt === "en")

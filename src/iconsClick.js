@@ -8,11 +8,16 @@ import blush3 from './images/icons/blushcolor3.png'
 import blush4 from './images/icons/blushcolor4.png'
 import blush5 from './images/icons/blushcolor5.png'
 import "./styles.css"
-import mask2 from "./images/overlay/overlayBLUSH2.png";
-import logo1 from "./images/overlay/overlayBLUSH1.png";
-import mask3 from "./images/overlay/overlayBLUSH3.png";
-import mask4 from "./images/overlay/overlayBLUSH4.png";
-import mask5 from "./images/overlay/overlayBLUSH5.png";
+import mask2 from "./images/overlay/blush2left.png";
+import mask2r from "./images/overlay/blush2right.png";
+import logo1 from "./images/overlay/blush1left.png";
+import logo1r from "./images/overlay/blush1right.png";
+import mask3 from "./images/overlay/blush3left.png";
+import mask3r from "./images/overlay/blush3right.png";
+import mask4 from "./images/overlay/blush4left.png";
+import mask4r from "./images/overlay/blush4right.png";
+import mask5 from "./images/overlay/blush5left.png";
+import mask5r from "./images/overlay/blush5right.png";
 import choose_color from "./images/icons/colorchoose.png";
 import settings from "./images/icons/settings.png";
 import about from "./images/icons/about.png";
@@ -27,12 +32,14 @@ const MyComponent = () => {
 
     useEffect(()=>{
         let try1 = document.getElementById("or")
+        let try2 = document.getElementById("or2")
         let a0;
         a0 = parseFloat(try1.style.opacity)
         if(0<= a0 <= 1)
             a0 = value/100
         console.log(a0)
         try1.style.opacity = a0.toString()
+        try2.style.opacity = a0.toString()
     })
 
     return (
@@ -153,22 +160,32 @@ class IconsClick  extends React.Component{
     ClickMask2(){
         let try1 = document.getElementById("or")
         try1.src=mask2
+        let try2 = document.getElementById("or2")
+        try2.src=mask2r
     }
     ClickMask1(){
         let try1 = document.getElementById("or")
         try1.src=logo1
+        let try2 = document.getElementById("or2")
+        try2.src=logo1r
     }
     ClickMask3(){
         let try1 = document.getElementById("or")
         try1.src=mask3
+        let try2 = document.getElementById("or2")
+        try2.src=mask3r
     }
     ClickMask4(){
         let try1 = document.getElementById("or")
         try1.src=mask4
+        let try2 = document.getElementById("or2")
+        try2.src=mask4r
     }
     ClickMask5(){
         let try1 = document.getElementById("or")
         try1.src=mask5
+        let try2 = document.getElementById("or2")
+        try2.src=mask5r
     }
     ChangeLang(){
         if (document.getElementById("or").alt === "en")
