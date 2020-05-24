@@ -59,6 +59,7 @@ export const getOverlayValues = landmarks => {
     widthR,
     my_right: my_right - widthR * 0.2,
     topR: topR - widthR * 0.45,
+    initial
   }
 }
 
@@ -104,6 +105,15 @@ export async function maskify(imageSrc, mask){
 
   const scale = imageSrc.width / imageSrc.naturalWidth;
   if (!detection) {
+    return
+  }
+
+  if (overlayValues.initial<0.5||(1/overlayValues.initial<0.5)){
+    if (document.getElementById("or").alt === "en")
+      alert("Face is too unproportional")
+    if (document.getElementById("or").alt === "ru")
+      alert("Слишком непропорциональное лицо")
+    document.getElementById("giff").hidden=true
     return
   }
 

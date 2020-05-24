@@ -86,6 +86,7 @@ class App extends React.Component {
     document.getElementById("face").style.top ='0px'
     document.getElementById("giff").hidden=false
     document.getElementById("or").hidden=true
+    document.getElementById("or2").hidden=true
     this.processImage(this.state.imageSrc);
   }
 
@@ -110,6 +111,7 @@ class App extends React.Component {
         document.getElementById("face").style.top ='0px'
         document.getElementById("giff").hidden = false
         document.getElementById("or").hidden = true
+        document.getElementById("or2").hidden = true
         let try1 = document.getElementById("face")
         try1.src = b
         this.processImage(this.state.imageSrc);
